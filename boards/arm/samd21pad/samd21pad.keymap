@@ -26,9 +26,7 @@
 
         default_layer {
             bindings = <
-                &kp HYP(F1) &kp HYP(F2) &kp HYP(F3)
-                &kp HYP(F4) &kp HYP(F5) &kp HYP(F6)
-                &kp HYP(F7) &kp HYP(F8) &kp HYP(F9)
+                &kp A
             >;
         };
     };
