@@ -91,10 +91,10 @@ zephyr_udc0: &usb0 {
 
 		/* SPI */
 		reg = <0>; /* ignored, but necessary for SPI bindings */
-		spi-max-frequency = <4000000>;
+		spi-max-frequency = <800000>;
 
 		/* WS2812 */
-		chain-length = <6>; /* LED strip length */
+		chain-length = <5>; /* LED strip length */
 		spi-one-frame = <0x70>;
 		spi-zero-frame = <0x40>;
 		color-mapping = <LED_COLOR_ID_GREEN LED_COLOR_ID_RED LED_COLOR_ID_BLUE>;
