@@ -17,4 +17,7 @@
 #     artifact-name: corne_left_with_logging
 #
 ---
-board: [ "samd21pad" ]
+include:
+  - board: samd21pad
+    snippet: studio-rpc-usb-uart
+    cmake-args: "-DCONFIG_ZMK_STUDIO=y"
