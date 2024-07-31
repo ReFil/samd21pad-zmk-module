@@ -9,6 +9,7 @@
 #include <atmel/samx2xx17.dtsi>
 #include <dt-bindings/led/led.h>
 #include "samd21pad-pinctrl.dtsi"
+#include <physical_layouts.dtsi>
 
 / {
 	model = "LP Galaxy samd21pad";
@@ -17,9 +18,8 @@
 	chosen {
 		zephyr,sram = &sram0;
 		zephyr,flash = &flash0;
-		zephyr,console = &cdc_acm_uart;
 		zephyr,code-partition = &code_partition;
-		zmk,kscan = &kscan;
+		zmk,physical-layout = &physical_layout;
 		zmk,underglow = &led_strip;
 	};
 	kscan: kscan {
@@ -29,6 +29,17 @@
 			= <&porta 15 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
 			;
 	};
+
+	physical_layout: physical_layout {
+        compatible = "zmk,physical-layout";
+        display-name = "Layout";
+
+        kscan = <&kscan>;
+
+        keys  //                     w   h    x    y     rot   rx   ry
+            = <&key_physical_attrs 100 100    0    0       0    0    0>
+            ;
+    };
 
 };
 
@@ -41,10 +52,6 @@ zephyr_udc0: &usb0 {
 
         pinctrl-0 = <&usb_dc_default>;
         pinctrl-names = "default";
-
-	cdc_acm_uart: cdc_acm_uart {
-		compatible = "zephyr,cdc-acm-uart";
-	};
 };
 
 &flash0 {
