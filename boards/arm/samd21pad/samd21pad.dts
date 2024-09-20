@@ -22,6 +22,7 @@
 		zephyr,code-partition = &code_partition;
 		zmk,physical-layout = &physical_layout;
 		zmk,underglow = &led_strip;
+		zmk,studio-rpc-uart = &snippet_studio_rpc_usb_uart;
 	};
 	kscan: kscan {
 		compatible = "zmk,kscan-gpio-direct";
@@ -115,4 +116,10 @@ zephyr_udc0: &usb0 {
 		spi-zero-frame = <0x40>;
 		color-mapping = <LED_COLOR_ID_GREEN LED_COLOR_ID_RED LED_COLOR_ID_BLUE>;
 	};
+};
+
+&zephyr_udc0 {
+    snippet_studio_rpc_usb_uart: snippet_studio_rpc_usb_uart {
+        compatible = "zephyr,cdc-acm-uart";
+    };
 };
